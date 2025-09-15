@@ -1,0 +1,78 @@
+---
+import { Tabs, TabsList, TabsTab, TabsPanel } from "accessible-astro-components";
+import Layout from "../layouts/Layout.astro";
+import GraphicSpecies from "../components/GraphicSpecies.astro";
+import RetourAccueil from "../components/RetourAccueil.astro";
+---
+<Layout>
+    <RetourAccueil />
+  <h1 class="text-2xl pt-10 pb-10 text-center">Méthode 4 : Navigation avec composants Astro Accessible</h1>
+  
+  <Tabs>
+    <TabsList>
+      <TabsTab id="tab-adelie" controls="panel-adelie" selected>Pingouin Adelie</TabsTab>
+      <TabsTab id="tab-gentoo" controls="panel-gentoo">Pingouin Gentoo</TabsTab>
+      <TabsTab id="tab-chinstrap" controls="panel-chinstrap">Pingouin Chinstrap</TabsTab>
+    </TabsList>
+
+    <TabsPanel id="panel-adelie" labelledby="tab-adelie" selected>
+      <div class="slide-content">
+        <h2 class="text-xl font-bold py-6 text-center">Graphique Penguins Adelie</h2>
+        <GraphicSpecies species="Adelie" />
+      </div>
+    </TabsPanel>
+    
+    <TabsPanel id="panel-gentoo" labelledby="tab-gentoo">
+      <div class="slide-content">
+        <h2 class="text-xl font-bold py-6 text-center">Graphique Penguins Gentoo</h2>
+        <GraphicSpecies species="Gentoo" />
+      </div>
+    </TabsPanel>
+    
+    <TabsPanel id="panel-chinstrap" labelledby="tab-chinstrap">
+      <div class="slide-content">
+        <h2 class="text-xl font-bold py-6 text-center">Graphique Penguins Chinstrap</h2>
+        <GraphicSpecies species="Chinstrap" />
+      </div>
+    </TabsPanel>
+  </Tabs>
+</Layout>
+<style>
+  .slide-content {
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem;
+    margin: 0 auto;
+  }
+  [role="tablist"] {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 2rem;
+  }
+
+  [role="tab"] {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-weight: 500;
+    color: #6b7280;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  [role="tab"]:hover {
+    color: #374151;
+    background-color: #f9fafb;
+  }
+
+  [role="tab"][aria-selected="true"] {
+    color: #1f2937;
+    border-bottom-color: #3b82f6;
+  }
+
+  [role="tabpanel"] {
+    min-height: 400px;
+  }
+</style>
