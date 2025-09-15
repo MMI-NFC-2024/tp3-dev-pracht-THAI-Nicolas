@@ -1,0 +1,133 @@
+---
+import Layout from "../layouts/Layout.astro"
+import GraphicSpecies from "../components/GraphicSpecies.astro"
+import RetourAccueil from "../components/RetourAccueil.astro"
+---
+
+<Layout>
+    <RetourAccueil />
+
+    <h1 class="text-2xl pt-10 pb-10 text-center">Méthode 3 : Slider horizontal avec navigation par ancres</h1>
+
+    <nav class="sticky top-0 bg-white border-b border-gray-200 shadow-sm z-10 py-4 mb-8">
+      <div class="max-w-4xl mx-auto px-6">
+        <ul class="flex justify-center space-x-8">
+          <li>
+            <a href="#adelie" 
+               class="text-gray-700 hover:text-black font-medium px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-300">
+              Penguins Adelie
+            </a>
+          </li>
+          <li>
+            <a href="#gentoo" 
+               class="text-gray-700 hover:text-black font-medium px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-300">
+              Penguins Gentoo
+            </a>
+          </li>
+          <li>
+            <a href="#chinstrap" 
+               class="text-gray-700 hover:text-black font-medium px-4 py-2 rounded-lg hover:bg-gray-100 transition-all duration-300">
+              Penguins Chinstrap
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <section id="adelie" class="slide">
+                <div class="slide-content">
+                    <h2 class="text-xl font-bold py-6 text-center">Graphique Penguins Adelie</h2>
+                    <GraphicSpecies species="Adelie" />
+                </div>
+            </section>
+
+            <section id="gentoo" class="slide">
+                <div class="slide-content">
+                    <h2 class="text-xl font-bold py-6 text-center">Graphique Penguins Gentoo</h2>
+                    <GraphicSpecies species="Gentoo" />
+                </div>
+            </section>
+
+            <section id="chinstrap" class="slide">
+                <div class="slide-content">
+                    <h2 class="text-xl font-bold py-6 text-center">Graphique Penguins Chinstrap</h2>
+                    <GraphicSpecies species="Chinstrap" />
+                </div>
+            </section>
+        </div>
+    </div>
+</Layout>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .slider-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .slider-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slider-wrapper {
+    display: flex;
+    width: 300%;
+    height: 80vh;
+  }
+
+  .slide {
+    width: 33.333%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-margin-left: 0;
+  }
+
+  .slide-content {
+    width: 90%;
+    max-width: 800px;
+    padding: 2rem;
+  }
+
+  nav a {
+    position: relative;
+    overflow: hidden;
+  }
+
+  nav a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    transition: width 0.3s ease;
+  }
+
+  nav a:hover::before {
+    width: 100%;
+  }
+
+  #adelie {
+    scroll-margin-left: 0;
+  }
+
+  #gentoo {
+    scroll-margin-left: 33.333%;
+  }
+
+  #chinstrap {
+    scroll-margin-left: 66.666%;
+  }
+</style>

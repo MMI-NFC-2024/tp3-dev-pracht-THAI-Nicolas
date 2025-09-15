@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import RetourAccueil from "../../components/RetourAccueil.astro";
+---
+<Layout>
+    <RetourAccueil />
+
+    <h1 class="text-2xl pt-5 pb-10 text-center">Méthode 1 : Menu vers les 3 sous-pages individuelles par graphique</h1>
+    
+    <nav class="bg-white border border-gray-200 rounded-lg shadow-sm max-w-2xl mx-auto p-6">
+        <ul class="flex flex-col space-y-4">
+            <li>
+                <a href="Adelie" 
+                   class="block w-full text-center bg-gray-50 hover:bg-gray-100 text-gray-800 hover:text-black font-medium py-3 px-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200">
+                    Penguins Adelie
+                </a>
+            </li>
+            <li>
+                <a href="Gentoo" 
+                   class="block w-full text-center bg-gray-50 hover:bg-gray-100 text-gray-800 hover:text-black font-medium py-3 px-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200">
+                    Penguins Gentoo
+                </a>
+            </li>
+            <li>
+                <a href="Chinstrap" 
+                   class="block w-full text-center bg-gray-50 hover:bg-gray-100 text-gray-800 hover:text-black font-medium py-3 px-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-200">
+                    Penguins Chinstrap
+                </a>
+            </li>
+        </ul>
+    </nav>
+</Layout>

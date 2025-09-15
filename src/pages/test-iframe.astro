@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro"
+import RetourAccueil from "../components/RetourAccueil.astro"
+---
+<Layout>
+<RetourAccueil />
+
+<h1 class="text-2xl pt-10 pb-10 text-center">Méthode 2 : Page avec IFRAME pour naviguer entre les graphiques sans rafraichir la page</h1>
+<div class="container mx-auto p-6">
+    <nav class="mb-6">
+      <h2 class="text-xl font-bold mb-4">Sélectionnez une espèce :</h2>
+      <ul class="flex space-x-6">
+        <li>
+          <a href="/species/Adelie" 
+             target="species-frame"
+             class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded transition-colors">
+            Adelie
+          </a>
+        </li>
+        <li>
+          <a href="/species/Chinstrap" 
+             target="species-frame"
+             class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded transition-colors">
+            Chinstrap
+          </a>
+        </li>
+        <li>
+          <a href="/species/Gentoo" 
+             target="species-frame"
+             class="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded transition-colors">
+            Gentoo
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <iframe 
+        name="species-frame"
+        src="/species/Adelie"
+        class="w-full border border-gray-300 rounded"
+        style="height: 65vh; min-height: 500px;">
+    </iframe>
+
+</div>
+
+</Layout>
