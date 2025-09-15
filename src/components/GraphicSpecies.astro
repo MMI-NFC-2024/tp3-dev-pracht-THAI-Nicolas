@@ -7,16 +7,26 @@ const {species} = Astro.props;
 const penguinsSpecies = penguins.filter(penguin => penguin.species === species);
 ---
 
-<div>
-    <PlotFigure
-    options={{
-      marks: [
-        Plot.dot(penguinsSpecies, {
-          x: "culmen_length_mm",
-          y: "culmen_depth_mm",
-          stroke: "species",
-        }),
-      ],
-    }}
-  />
+<div class="bg-white rounded-lg shadow-lg border border-gray-200 p-6 mx-auto max-w-4xl">
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-100">
+        <PlotFigure
+        options={{
+          marks: [
+            Plot.dot(penguinsSpecies, {
+              x: "culmen_length_mm",
+              y: "culmen_depth_mm",
+              stroke: "species",
+            }),
+          ],
+        }}
+      />
+    </div>
+    <div class="mt-4 text-center">
+        <p class="text-sm text-gray-600 font-medium">
+            Longueur du bec (mm) vs Profondeur du bec (mm)
+        </p>
+        <p class="text-xs text-gray-500 mt-1">
+            Données de {penguinsSpecies.length} pingouins {species}
+        </p>
+    </div>
 </div>
